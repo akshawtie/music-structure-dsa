@@ -1,0 +1,248 @@
+Skip to main content
+Google Classroom
+Classroom
+2BCA A Web Stack Development
+Home
+Calendar
+Gemini
+Enrolled
+To-do
+P
+Poetics, Politics and Pivotal People of Rock and Roll
+Second Semester
+2
+2BCA
+A
+2
+25-26_BCA 105-2_OS
+A Section
+D
+DATA STRUCTURES USING C++- BCA206-2
+BCA A
+2
+2BCA A Web Stack Development
+B
+BCA101-1 (2025-2026)
+Section A
+I
+I BCA A 2025-2026
+2
+2025 I BCA A WEB TECHNOLOGY
+A
+1
+1BCA-A- C Programming
+2
+2025 I BCA A PSD
+R
+Recruitment Vignette Windows
+Archived classes
+Settings
+LAB 1: AJAX , JavaScript, Methods, Properties
+LAB 1: AJAX , JavaScript, Methods, Properties
+Nismon Rio R Computer Science
+•
+12:10 PM (Edited 12:19 PM)
+10 points
+Due 4:00 PM
+Create a AJAX program including the script, methods and function along with required properties and methods of your domain. AJAX should have the following as follows:
+1. Open the connection(Gathering Information) 
+2. Request Initialization (by setting the URL)
+3. Open the connection 
+4. Use call back method 
+5. send the request
+ajax.1.html
+HTML
+
+Class comments
+Your work
+Assigned
+Private comments
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Agenda Management System</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="login_css.css">
+</head>
+<style>
+    .navbar {
+        background-color: #007bff; 
+        color: #fff; 
+        padding: 20px;
+        width: 100%;
+    }
+    
+    .all-links li a {
+        text-decoration: none;
+        color: #fff; 
+    }
+    
+    .logo {
+        height: 40px; 
+    }
+    
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        width: 100%;
+    }
+
+    .all-links {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+    }
+
+    .all-links li a {
+        text-decoration: none;
+        color: #333;
+    }
+
+    .logo {
+        height: 40px; 
+    }
+
+    .navbar {
+        background-color: #007bff; 
+        color: #fff; 
+        padding: 20px;
+        width: 100%;
+    }
+
+    .all-links li a {
+        text-decoration: none;
+        color: #fff; 
+    }
+
+    .logo {
+        height: 40px;
+    }
+</style>
+<body>
+    <header>
+        <nav class="navbar" style=" width: 100%;">
+            <img src="logo.png" alt="Logo" class="logo">
+            <h2 class="eventmgmt"><a href="homepage.html">SkyEvents </a></h2>
+            <ul class="all-links">
+                <li><a href="homepage.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form id="signup-form">
+                <h1>Create Account</h1>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your email for registration</span>
+                <input type="text" id="signup-name" placeholder="Name" />
+                <input type="email" id="signup-email" placeholder="Email" />
+                <input type="password" id="signup-password" placeholder="Password" />
+                <button type="button" id="signup-button">Sign Up</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form id="signin-form">
+                <h1>Sign in</h1>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your account</span>
+                <input type="email" id="signin-email" placeholder="Email" />
+                <input type="password" id="signin-password" placeholder="Password" />
+                <a href="#">Forgot your password?</a>
+                <button type="button" id="signin-button">Sign In</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Welcome Back!</h1>
+                    <p>To keep connected with us please login with your personal info</p>
+                    <button class="ghost" id="signIn">Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Enter your personal details and start journey with us</p>
+                    <button class="ghost" id="signUp">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('signUp').addEventListener('click', function() {
+            document.getElementById('container').classList.add("right-panel-active");
+        });
+
+        document.getElementById('signIn').addEventListener('click', function() {
+            document.getElementById('container').classList.remove("right-panel-active");
+        });
+
+        document.getElementById('signup-button').addEventListener('click', function() {
+            var name = document.getElementById('signup-name').value;
+            var email = document.getElementById('signup-email').value;
+            var password = document.getElementById('signup-password').value;
+            if(document.getElementById("signup-name").value==""){
+            alert("enter value in name");}
+            if(document.getElementById("signup-email").value==""){
+            alert("enter value in email");}
+            if(document.getElementById("signup-password").value==""){
+            alert("enter value in password");}
+            
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'signup.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    alert(xhr.responseText);
+                }
+            };
+            xhr.send('name=' + name + '&email=' + email + '&password=' + password);
+        });
+
+        document.getElementById('signin-button').addEventListener('click', function() {
+            var email = document.getElementById('signin-email').value;
+            var password = document.getElementById('signin-password').value;
+            if(document.getElementById("signup-name").value==""){
+            alert("enter value in name");}
+            if(document.getElementById("signup-password").value==""){
+            alert("enter value in password");}
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'signin.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    alert(xhr.responseText);
+                }
+            };
+            xhr.send('email=' + email + '&password=' + password);
+        });
+        
+            
+        
+    </script>
+</body>
+</html>
+login.html
+External
+Displaying login.html.
+ajax.1.html
+Displaying ajax.1.html.
