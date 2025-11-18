@@ -6,6 +6,8 @@ class point{
 
     int x;
     int* a;
+    string s;
+    string r;
     void print()
     {
         x=4564;
@@ -16,31 +18,56 @@ class point{
         cout<<"Value stored in POinter is "<< *a;
 
     }
+    void hcases()
+    {
+        if(s.length()==0||s.length()==1)
+        {
+            cout<<"Invalid length of String";
+        }
+        bool spaceflag=false;
+        int j;
+        for(int i=0;i<s.length();i++)
+        {
+          if(s[i]==' ')
+          {
+            spaceflag=true;
+          }
+         if(s[i]!=' ')
+         {
+            r+=s[i];
+         }
+        };
+        if(spaceflag==true)
+        {
+            cout<<endl<<"The Character Had whitespaces which were removed by the program"<<endl;
+        }
+    }
     void palindrome(){
-        string a;
-        cout<<"Enter The Word to check palindrome";
-        cin>>a;
+        cout<<"Enter The Word to check palindrome "<<endl;
+        getline(cin, s);
         bool flag;
+        hcases();
         int i=0;
-        int j=(a.length())-1;
+        int j=(r.length())-1;
         while(i<j)
         {
-            if(a[i]==a[j])
+            if(r[i]==r[j])
             {
                 flag=true;
             }
-            if(a[i]!=a[j])
+            if(r[i]!=r[j])
             {
                 flag=false;
             }
             i++;j--;
         }
     if(flag)
-    cout<<a<<" is a palindrome";
+    cout<<r<<" is a palindrome";
     else{
-        cout<<a<<" is not a palindrome";
+        cout<<r<<" is not a palindrome";
     }
 }    
+
 };
 int main()
 {

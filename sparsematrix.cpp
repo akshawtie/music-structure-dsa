@@ -14,6 +14,7 @@ class sparse{
      int total;
      int **matrix2;
      int nonsparse;
+    void genredetector();
 
 
 };
@@ -130,6 +131,25 @@ int main()
     s1.check();
     s1.triplet();
     s1.search();
+    s1.genredetector();
     return 0;
 }
 
+/*rules for genre detection the first row determines 
+if the inputed matrix is a sparse matrix, the program 
+will return an output that the user needs to listen to more music
+if its not a sparse matrix then it will calculate the choice between three genres*/
+void sparse::genredetector(){
+    if(sparse_flag==true)
+    {
+        cout<<"The Program does not have enough music listening data";
+    }
+ 
+    int rock,pop,hop;
+    int alt_genre;
+    if(matrix[0][0]==0)
+    {
+        rock=0;
+    }
+    rock=matrix[0][0]+(matrix[0][1])*10+(matrix[0][2])*100;
+}
