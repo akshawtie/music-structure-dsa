@@ -162,11 +162,11 @@ if(matrix[1][0]==0)
     else{
     pop=matrix[0][0]+(matrix[0][1])*10+(matrix[0][2])*20;
 }
-if(matrix[0][0]==0)
+if(matrix[2][0]==0)
     {
-        rock=0;
+        hop=0;
     }
     else{
-    rock=matrix[0][0]+(matrix[0][1])*10+(matrix[0][2])*100;
+    hop=matrix[0][0]+(matrix[0][1])*10+(matrix[0][2])*100;
 }
 }

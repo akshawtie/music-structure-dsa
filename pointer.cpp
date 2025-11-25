@@ -6,7 +6,7 @@ class point{
     string s;
     string r;
     
-    void hcases()
+    string hcases()
     {
         if(s.length()==0||s.length()==1)
         {
@@ -28,31 +28,33 @@ class point{
         if(spaceflag==true)
         {
             cout<<endl<<"The Character Had whitespaces which were removed by the program"<<endl;
+        
         }
+        return r;
     }
     void palindrome(){
         cout<<"Enter The Word to check palindrome "<<endl;
         getline(cin, s);
-        bool flag;
-        hcases();
+        bool flag=true;
+        s=hcases();
         int i=0;
-        int j=(r.length())-1;
-        while(i<j)
+        int j=(s.length())-1;
+        while(i<j && flag)
         {
-            if(r[i]==r[j])
+            if(s[i]==r[j])
             {
                 flag=true;
             }
-            if(r[i]!=r[j])
+            if(s[i]!=r[j])
             {
                 flag=false;
             }
             i++;j--;
         }
     if(flag)
-    cout<<r<<" is a palindrome";
+    cout<<s<<" is a palindrome";
     else{
-        cout<<r<<" is not a palindrome";
+        cout<<s<<" is not a palindrome";
     }
 }    
 
