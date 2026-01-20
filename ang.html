@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Music Player Library</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        body 
+        { font-family: 'Segoe UI', sans-serif; padding: 20px; background-color: #f4f4f4; }
+        .player-container { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        .search-bar { padding: 10px; width: 60%; margin-bottom: 10px; font-size: 16px; }
+        .status-text { color: #666; font-style: italic; margin-left: 10px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background-color: #333; color: white; cursor: pointer; }
+        
+        /* CSS for Mouse Events */
+        .active-row { background-color: #d1e7dd; font-weight: bold; }
+        button { padding: 5px 10px; cursor: pointer; background-color: #007bff; color: white; border: none; border-radius: 4px; }
+        button:hover { background-color: #0056b3; }
+    </style>
+</head>
+
+<body ng-app="musicApp" ng-controller="musicCtrl">
+
+    <div class="player-container">
+        <h1>🎵 My Music Library</h1>
+
+        <div>
+            <input type="text" 
+                   class="search-bar" 
+                   ng-model="searchKeyword" 
+                   ng-focus="searchStatus='Searching library...'" 
+                   ng-blur="searchStatus='Ready'" 
+                   placeholder="Search by Song, Artist or Genre...">
+            
+            <span class="status-text">{{ searchStatus }}</span>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th ng-click="sortBy='title'">Song Title ⬍</th>
+                    <th ng-click="sortBy='artist'">Artist ⬍</th>
+                    <th>Genre</th>
+                    <th>Year</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="song in playlist | filter:searchKeyword | orderBy:sortBy"
+                    ng-init="isHovering=false"
+                    ng-mouseover="isHovering=true" 
+                    ng-mouseleave="isHovering=false"
+                    ng-class="{'active-row': isHovering}">
+                    <td>{{ song.title }}</td>
+                    
+                    <td>{{ song.artist | uppercase }}</td>
+                    
+                    <td>{{ song.genre }}</td>
+                    <td>{{ song.year }}</td>
+                    
+                    <td>
+                        <button ng-click="playSong(song.title)">Play ▶</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        var app = angular.module('musicApp', []);
+
+        app.controller('musicCtrl', function($scope, $http) {
+            $scope.sortBy = 'title'; // Default sort order
+            $scope.searchStatus = 'Ready';
+
+            // Fetch data from JSON file
+            $http.get("music.json")
+            .then(function(response) {
+                $scope.playlist = response.data;
+            }, function(error) {
+                console.log("Error loading JSON", error);
+                $scope.searchStatus = "Error: Please run on local server";
+            });
+
+            // Play button logic
+            $scope.playSong = function(songTitle) {
+                alert("Now Playing: ♫ " + songTitle + " ♫");
+            };
+        });
+    </script>
+
+</body>
+</html>

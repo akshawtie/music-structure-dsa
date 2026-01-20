@@ -1,0 +1,37 @@
+[
+  {
+    "title": "Bohemian Rhapsody",
+    "artist": "queen",
+    "genre": "Rock",
+    "rating": 5,
+    "year": 1975
+  },
+  {
+    "title": "Shape of You",
+    "artist": "ed sheeran",
+    "genre": "Pop",
+    "rating": 4,
+    "year": 2017
+  },
+  {
+    "title": "Hotel California",
+    "artist": "eagles",
+    "genre": "Rock",
+    "rating": 5,
+    "year": 1976
+  },
+  {
+    "title": "Blinding Lights",
+    "artist": "the weeknd",
+    "genre": "Synth-pop",
+    "rating": 4,
+    "year": 2019
+  },
+  {
+    "title": "Rolling in the Deep",
+    "artist": "adele",
+    "genre": "Soul",
+    "rating": 5,
+    "year": 2010
+  }
+]
