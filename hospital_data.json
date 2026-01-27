@@ -1,0 +1,29 @@
+{
+  "patients": [
+    {
+      "age": 18,
+      "id": 101,
+      "name": "Arsh"
+    },
+    {
+      "age": 18,
+      "id": 102,
+      "name": "akshat"
+    },
+    {
+      "age": 48,
+      "id": 103,
+      "name": "Ananya"
+    },
+    {
+      "age": 56,
+      "id": 104,
+      "name": "Ancil"
+    },
+    {
+      "age": 99,
+      "id": 105,
+      "name": "Himanshu"
+    }
+  ]
+}
